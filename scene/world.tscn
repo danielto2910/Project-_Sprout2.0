@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://do3neqiqgiyc6"]
+
+[ext_resource type="PackedScene" uid="uid://nsnr54ccw2f4" path="res://scene/block.tscn" id="1_txmk2"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scene/player.tscn" id="2_w4qq1"]
+
+[node name="World" type="Node2D" unique_id=1232381115]
+position = Vector2(-4, 0)
+
+[node name="Block" parent="." unique_id=890732119 instance=ExtResource("1_txmk2")]
+position = Vector2(-66, 0)
+
+[node name="Block2" parent="." unique_id=1643781897 instance=ExtResource("1_txmk2")]
+position = Vector2(77, 0)
+
+[node name="Player" parent="." unique_id=1962235186 instance=ExtResource("2_w4qq1")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=955424939]
+zoom = Vector2(3.585, 3.585)
