@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://nsnr54ccw2f4"]
 
+[ext_resource type="PackedScene" uid="uid://2rhyidmryq22" path="res://scene/hurtboxComponent.tscn" id="1_xv03h"]
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_no7f1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv03h"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_osf0l"]
+resource_local_to_scene = true
 
 [node name="Block" type="StaticBody2D" unique_id=890732119]
 
@@ -10,5 +13,5 @@
 scale = Vector2(19.175, 19.175)
 texture = SubResource("CanvasTexture_no7f1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1076788007]
-shape = SubResource("RectangleShape2D_xv03h")
+[node name="HurtboxComponent" parent="." unique_id=445588084 instance=ExtResource("1_xv03h")]
+shape = SubResource("CapsuleShape2D_osf0l")

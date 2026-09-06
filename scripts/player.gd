@@ -2,8 +2,6 @@ extends CharacterBody2D
 @onready var animation = $AnimatedSprite2D
 
 const SPEED = 100.0
-
-
 func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_vector("move_left","move_right","move_up","move_down")
@@ -11,9 +9,13 @@ func _physics_process(delta: float) -> void:
 		velocity = direction.normalized() * SPEED
 	else:
 		velocity = Vector2.ZERO
-		
+	
 	move_and_slide()
 	set_animation(direction)
+
+func attack_target():
+	print("ATTACKED")
+	
 
 func set_animation(direction):
 	if direction.x > 0:

@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://ckudr8chj1kgo"]
 
-[ext_resource type="Script" uid="uid://dyinut40ngu8w" path="res://scene/player.gd" id="1_hjaqi"]
+[ext_resource type="Script" uid="uid://dyinut40ngu8w" path="res://scripts/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://dppxtimdljob8" path="res://sprites/Sprout1-Sheet.png" id="1_xo3ru"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(20, 18.5)
+[ext_resource type="PackedScene" uid="uid://b73a1u03i0ddy" path="res://scene/hitboxComponent.tscn" id="3_fvtld"]
+[ext_resource type="PackedScene" uid="uid://2rhyidmryq22" path="res://scene/hurtboxComponent.tscn" id="4_ct4mp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("1_xo3ru")
@@ -75,14 +74,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct4mp"]
+resource_local_to_scene = true
+radius = 6.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s4jxa"]
+resource_local_to_scene = true
+radius = 9.0
+height = 26.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1962235186]
 script = ExtResource("1_hjaqi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1539197556]
-shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1959909939]
 position = Vector2(-1.9073486e-06, -1.9073486e-06)
 scale = Vector2(0.515625, 0.515625)
 sprite_frames = SubResource("SpriteFrames_1jxqw")
 animation = &"walk"
+
+[node name="HitboxComponent" parent="." unique_id=1013313870 instance=ExtResource("3_fvtld")]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_ct4mp")
+
+[node name="HurtboxComponent" parent="." unique_id=445588084 instance=ExtResource("4_ct4mp")]
+shape = SubResource("CapsuleShape2D_s4jxa")
